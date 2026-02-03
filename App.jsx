@@ -13,8 +13,8 @@ import {
 // --- DATA ---
 // Updated colors to fade from Dark Blue to Lighter Blue based on accuracy
 const MODEL_STATS = [
-  { name: 'DeepHealthNet', acc: 97.00, p: 0.97, r: 0.97, f1: 0.97, color: '#172554' }, // Blue 950
-  { name: 'Logistic Reg.', acc: 95.60, p: 0.97, r: 0.95, f1: 0.96, color: '#1e3a8a' }, // Blue 900
+  { name: 'DHN', acc: 97.00, p: 0.97, r: 0.97, f1: 0.97, color: '#172554' }, // Blue 950
+  { name: 'LR', acc: 95.60, p: 0.97, r: 0.95, f1: 0.96, color: '#1e3a8a' }, // Blue 900
   { name: 'MLP', acc: 95.00, p: 0.95, r: 0.94, f1: 0.95, color: '#1e40af' }, // Blue 800
   { name: 'CNN', acc: 94.50, p: 0.95, r: 0.93, f1: 0.94, color: '#2563eb' }, // Blue 600
   { name: 'LSTM', acc: 91.00, p: 0.93, r: 0.88, f1: 0.90, color: '#3b82f6' }, // Blue 500
@@ -355,7 +355,6 @@ const App = () => {
                   <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 select-none">
                     <div className="flex justify-between items-start mb-4">
                        <div className={`p-3 rounded-xl ${m.bg} ${m.c}`}><m.i size={20}/></div>
-                       {idx === 0 && <span className="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full">SOTA</span>}
                     </div>
                     <p className="text-xs font-black text-slate-400 uppercase mb-1">{m.l}</p>
                     <p className={`text-3xl font-black ${m.c}`}>{m.v}</p>
@@ -406,7 +405,7 @@ const App = () => {
                      <div className="relative z-10 space-y-6">
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                           <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 select-none">
-                            <Calendar size={12} /> Date: Jan 2025
+                            <Calendar size={12} /> IEEE Published Date: Jan 26th, 2026
                           </span>
                           <span className="text-slate-400 text-xs font-bold uppercase tracking-wider select-none">Document #11348622</span>
                         </div>
