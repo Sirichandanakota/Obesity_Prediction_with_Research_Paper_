@@ -170,10 +170,10 @@ const App = () => {
 
   return (
     <div className={`${theme}`}>
-      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans selection:bg-blue-900 selection:text-white">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans selection:bg-blue-200 selection:text-blue-900">
         
         {/* Navbar */}
-        <nav className="fixed top-0 w-full h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 flex items-center justify-between px-4 md:px-8 transition-colors duration-300 select-none">
+        <nav className="fixed top-0 w-full h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 flex items-center justify-between px-4 md:px-8 transition-colors duration-300">
           <div className="flex items-center gap-3">
             <div className="bg-blue-900 text-white p-1.5 rounded-lg">
               <BrainCircuit size={20} />
@@ -189,7 +189,7 @@ const App = () => {
                 <button 
                   key={tab.id} 
                   onClick={() => setActiveTab(tab.id)} 
-                  className={`px-3 md:px-4 py-1.5 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all ${
+                  className={`px-3 md:px-4 py-1.5 rounded-lg text-xs md:text-sm font-bold flex items-center gap-2 transition-all select-none ${
                     activeTab === tab.id 
                     ? 'bg-blue-900 text-white shadow-md' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-200'
@@ -203,7 +203,7 @@ const App = () => {
             <div className="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1 md:mx-2"></div>
             <button 
               onClick={toggleTheme} 
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-400 transition-colors"
+              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-blue-400 transition-colors select-none"
             >
               {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
@@ -217,7 +217,7 @@ const App = () => {
             <div className="space-y-8 md:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
               
               {/* DISCLAIMER BANNER */}
-              <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start gap-4 hover:shadow-md transition-all duration-300 select-none">
+              <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start gap-4 hover:shadow-md transition-all duration-300">
                 <ShieldAlert className="text-amber-600 shrink-0 mt-0.5" size={20} />
                 <div>
                   <h4 className="text-sm font-bold text-amber-800 dark:text-amber-200 uppercase tracking-wide">Research Prototype Disclaimer</h4>
@@ -231,16 +231,17 @@ const App = () => {
                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
                 
                 {/* Left: Input Form */}
-                <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-lg shadow-blue-900/5 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl relative overflow-hidden flex flex-col">
+                {/* Added select-none to wrapper to prevent caret on background, but inputs remain selectable */}
+                <div className="lg:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-lg shadow-blue-900/5 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl relative overflow-hidden flex flex-col select-none">
                   
                   <div className="relative z-10 flex-grow">
-                    <h3 className="font-black text-xl mb-6 flex items-center gap-2 text-slate-900 dark:text-white select-none">
+                    <h3 className="font-black text-xl mb-6 flex items-center gap-2 text-slate-900 dark:text-white">
                       <Microscope className="text-blue-900 dark:text-blue-400" size={24} /> 
                       Run Diagnostics
                     </h3>
                     
                     {error && (
-                      <div className="p-3 mb-4 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-200 rounded-xl text-xs font-bold border border-red-100 dark:border-red-800 flex items-center gap-2 select-none">
+                      <div className="p-3 mb-4 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-200 rounded-xl text-xs font-bold border border-red-100 dark:border-red-800 flex items-center gap-2">
                         <AlertCircle size={14} />{error}
                       </div>
                     )}
@@ -248,12 +249,12 @@ const App = () => {
                     <div className="space-y-5">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest select-none">Age</label>
-                          <input type="number" value={formData.age} onChange={e => setFormData({...formData, age: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all" />
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Age</label>
+                          <input type="number" value={formData.age} onChange={e => setFormData({...formData, age: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all select-text" />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest select-none">Gender</label>
-                          <select value={formData.gender} onChange={e => setFormData({...formData, gender: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all">
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Gender</label>
+                          <select value={formData.gender} onChange={e => setFormData({...formData, gender: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all select-text">
                             <option>Male</option>
                             <option>Female</option>
                           </select>
@@ -261,23 +262,23 @@ const App = () => {
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest select-none">Height (cm)</label>
-                          <input type="number" step="0.1" value={formData.height} onChange={e => setFormData({...formData, height: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all" />
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Height (cm)</label>
+                          <input type="number" step="0.1" value={formData.height} onChange={e => setFormData({...formData, height: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all select-text" />
                         </div>
                         <div className="space-y-1.5">
-                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest select-none">Weight (kg)</label>
-                          <input type="number" step="0.1" value={formData.weight} onChange={e => setFormData({...formData, weight: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all" />
+                          <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Weight (kg)</label>
+                          <input type="number" step="0.1" value={formData.weight} onChange={e => setFormData({...formData, weight: e.target.value})} className="w-full bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-700 focus:border-blue-900 dark:focus:border-blue-500 rounded-xl px-4 py-3 font-bold outline-none transition-all select-text" />
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest select-none">Activity Level (1-4)</label>
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Activity Level (1-4)</label>
                         <div className="grid grid-cols-4 gap-2">
                           {[1, 2, 3, 4].map(lvl => (
-                            <button key={lvl} onClick={() => setFormData({...formData, activity: lvl})} className={`py-3 rounded-xl font-black transition-all border select-none ${formData.activity === lvl ? 'bg-blue-900 border-blue-900 text-white shadow-lg' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-blue-900'}`}>{lvl}</button>
+                            <button key={lvl} onClick={() => setFormData({...formData, activity: lvl})} className={`py-3 rounded-xl font-black transition-all border ${formData.activity === lvl ? 'bg-blue-900 border-blue-900 text-white shadow-lg' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-blue-900'}`}>{lvl}</button>
                           ))}
                         </div>
                       </div>
-                      <button onClick={runInference} disabled={loading} className="w-full py-4 bg-blue-900 hover:bg-blue-800 active:scale-[0.98] text-white rounded-xl font-black text-sm uppercase tracking-wide flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-blue-900/20 transition-all mt-6 select-none">
+                      <button onClick={runInference} disabled={loading} className="w-full py-4 bg-blue-900 hover:bg-blue-800 active:scale-[0.98] text-white rounded-xl font-black text-sm uppercase tracking-wide flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-blue-900/20 transition-all mt-6">
                         {loading ? <RefreshCcw className="animate-spin" size={18} /> : <>Generate Prediction <ChevronRight size={18} /></>}
                       </button>
                     </div>
@@ -287,7 +288,7 @@ const App = () => {
                 {/* Right: Live Result */}
                 <div className="lg:col-span-7">
                   {prediction ? (
-                    <div key={prediction.timestamp} className={`h-full p-6 md:p-8 rounded-3xl shadow-xl border-l-8 ${CATEGORY_META[prediction.category]?.bg} ${CATEGORY_META[prediction.category]?.border} animate-in slide-in-from-right-8 duration-500 flex flex-col justify-between hover:scale-[1.01] transition-transform duration-300 select-none`}>
+                    <div key={prediction.timestamp} className={`h-full p-6 md:p-8 rounded-3xl shadow-xl border-l-8 ${CATEGORY_META[prediction.category]?.bg} ${CATEGORY_META[prediction.category]?.border} animate-in slide-in-from-right-8 duration-500 flex flex-col justify-between hover:scale-[1.01] transition-transform duration-300`}>
                       <div>
                         <div className="flex items-start justify-between mb-6">
                           <div className="flex items-center gap-3">
@@ -329,12 +330,12 @@ const App = () => {
               </div>
 
               {/* Header Stats */}
-              <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800 select-none">
+              <header className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
                 <div>
                   <h1 className="text-3xl md:text-4xl font-black tracking-tighter mb-2 text-slate-900 dark:text-white">Diagnostic Dashboard</h1>
                   <p className="text-slate-500 dark:text-slate-400 max-w-2xl font-medium text-sm md:text-base">Real-time metabolic inference powered by DeepHealthNet.</p>
                 </div>
-                <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3 shadow-sm hover:scale-105 transition-transform duration-300">
+                <div className="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-3 shadow-sm hover:scale-105 transition-transform duration-300 select-none">
                   <div className="bg-blue-900/10 p-2 rounded-lg"><Database size={18} className="text-blue-900 dark:text-blue-400" /></div>
                   <div>
                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Dataset</p>
@@ -362,16 +363,16 @@ const App = () => {
                 ))}
               </div>
 
-              {/* Charts Section - Expanded to full width since Cohort Distribution was removed */}
+              {/* Charts Section */}
               <div className="grid grid-cols-1 gap-6 md:gap-8">
-                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.005] select-none">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8 rounded-3xl shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.005]">
                   <h3 className="font-black text-xl mb-8 text-slate-900 dark:text-white">Comparative Performance Analysis</h3>
                   <div className="h-[350px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <ComposedChart data={MODEL_STATS}>
+                      <ComposedChart data={MODEL_STATS} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} strokeOpacity={0.1} stroke="#94a3b8" />
-                        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 12, fontWeight: 'bold', fill: '#64748b'}} />
-                        <YAxis domain={[85, 100]} axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} />
+                        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 10, fontWeight: 'bold', fill: '#64748b'}} interval={0} />
+                        <YAxis domain={[85, 100]} axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 10}} />
                         <Tooltip 
                           contentStyle={{borderRadius: '8px', border: 'none', backgroundColor: '#0f172a', color: '#fff'}} 
                           itemStyle={{color: '#fff'}}
@@ -391,7 +392,7 @@ const App = () => {
           {activeTab === 'research' && (
              <div className="space-y-8 md:space-y-12 animate-in fade-in duration-500 pb-10">
                 
-                <header className="max-w-4xl mx-auto text-center space-y-4 select-none">
+                <header className="max-w-4xl mx-auto text-center space-y-4">
                   <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-slate-900 dark:text-white">Research Contribution</h2>
                   <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg">Detailed analysis of the DeepHealthNet architecture and methodology.</p>
                 </header>
@@ -410,7 +411,7 @@ const App = () => {
                           <span className="text-slate-400 text-xs font-bold uppercase tracking-wider select-none">Document #11348622</span>
                         </div>
                         <h3 className="text-2xl md:text-3xl font-black leading-tight text-slate-900 dark:text-white">Enhancing Obesity Prediction with Explainable AI: A DeepHealthNet-Based Comparative Study</h3>
-                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium text-sm md:text-base">
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium text-sm md:text-base select-text">
                            <strong>Abstract:</strong> Obesity is becoming a global issue as daily habits shift toward less movement and more unhealthy eating as life becomes more convenient. People are unknowingly developing habits that increase the risk of obesity. The purpose of this study is to predict obesity categories using Machine Learning (ML) and Deep Learning (DL) models on actual data. We tested a few different models including K-Nearest Neighbors (KNN), Logistic Regression, Multi-Layer Perceptron (MLP), Long-Shortterm Memory (LSTM), Convolutional Neural Networks (CNN) and our custom architecture DeepHealthNet. Among these models, the proposed DeepHealthNet achieved the highest accuracy (97.00%) above Logistic Regression (95.60%), followed by MLP (95.00%) by a lower difference. Further examinations of the DeepHealthNet model showed differences in predicting obesity rates based on gender in Men (94.29%) and Women (92.71%).
                         </p>
                         <div className="pt-6">
@@ -454,7 +455,7 @@ const App = () => {
                 </div>
 
                 {/* SHAP / XAI Section */}
-                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-10 rounded-3xl shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] select-none">
+                <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-10 rounded-3xl shadow-sm transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
                    <div className="flex flex-col md:flex-row gap-10">
                       <div className="flex-1 space-y-6">
                          <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
@@ -465,16 +466,16 @@ const App = () => {
                          </p>
                          
                          {/* Reconstructed Chart */}
-                         <div className="h-[400px] w-full mt-6">
+                         <div className="h-[500px] w-full mt-6">
                             <ResponsiveContainer width="100%" height="100%">
                               <BarChart
                                 layout="vertical"
                                 data={SHAP_SUMMARY_DATA}
-                                margin={{ top: 20, right: 30, left: 40, bottom: 5 }}
+                                margin={{ top: 20, right: 10, left: 0, bottom: 5 }}
                               >
                                 <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#94a3b8" opacity={0.2} />
-                                <XAxis type="number" stroke="#94a3b8" tick={{fontSize: 12}} />
-                                <YAxis dataKey="feature" type="category" stroke="#64748b" tick={{fontSize: 12, fontWeight: 'bold'}} width={100} />
+                                <XAxis type="number" stroke="#94a3b8" tick={{fontSize: 10}} />
+                                <YAxis dataKey="feature" type="category" stroke="#64748b" tick={{fontSize: 12, fontWeight: 'bold'}} width={80} />
                                 <Tooltip 
                                   contentStyle={{borderRadius: '8px', border: 'none', backgroundColor: '#0f172a', color: '#fff'}}
                                   cursor={{fill: 'transparent'}}
@@ -501,4 +502,4 @@ const App = () => {
   );
 };
 
-export default App; 
+export default App;
