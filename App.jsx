@@ -271,7 +271,7 @@ const App = () => {
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Activity Level (1-4)</label>
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Physical Activity Level (1-4)</label>
                         <div className="grid grid-cols-4 gap-2">
                           {[1, 2, 3, 4].map(lvl => (
                             <button key={lvl} onClick={() => setFormData({...formData, activity: lvl})} className={`py-3 rounded-xl font-black transition-all border ${formData.activity === lvl ? 'bg-blue-900 border-blue-900 text-white shadow-lg' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-blue-900'}`}>{lvl}</button>
