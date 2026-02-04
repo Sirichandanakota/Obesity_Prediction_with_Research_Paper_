@@ -178,7 +178,7 @@ const App = () => {
             <div className="bg-blue-900 text-white p-1.5 rounded-lg">
               <BrainCircuit size={20} />
             </div>
-            <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900 dark:text-white truncate">DeepHealthNet <span className="text-blue-900 dark:text-blue-400">Research</span></span>
+            <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900 dark:text-white truncate">Obesity Prediction<span className="text-blue-900 dark:text-blue-400">Research </span></span>
           </div>
           <div className="flex items-center gap-2 md:gap-4">
              <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
@@ -431,7 +431,7 @@ const App = () => {
                               <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 font-bold shrink-0">1</div>
                               <div>
                                  <p className="font-bold">Input Layer</p>
-                                 <p className="text-sm text-slate-400">Standardized biometric vector (Age, BMI, Activity, etc.)</p>
+                                 <p className="text-sm text-slate-400">Standardized biometric vector (Age, Weight, Height, BMI, Activity, etc.)</p>
                               </div>
                            </li>
                            <li className="flex gap-4">
