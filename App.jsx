@@ -293,7 +293,7 @@ const App = () => {
                         <div className="flex items-start justify-between mb-6">
                           <div className="flex items-center gap-3">
                              <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm"><Stethoscope className={CATEGORY_META[prediction.category]?.color} size={28} /></div>
-                             <span className="hidden md:inline text-xs font-bold text-slate-500 uppercase tracking-widest px-3 py-1 bg-white dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700">DeepHealthNet Assessment</span>
+                             <span className="hidden md:inline text-xs font-bold text-slate-500 uppercase tracking-widest px-3 py-1 bg-white dark:bg-slate-900 rounded-full border border-slate-200 dark:border-slate-700">DeepHealthNet Result</span>
                           </div>
                           <div className="text-right">
                             <p className="text-[10px] font-black text-slate-400 uppercase mb-1">Confidence</p>
