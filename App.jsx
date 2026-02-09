@@ -173,7 +173,13 @@ const App = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans selection:bg-blue-200 selection:text-blue-900">
         
         {/* Navbar */}
-        <nav className="fixed top-0 w-full h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 z-50 flex items-center justify-between px-4 md:px-8 transition-colors duration-300">
+        <nav className="fixed top-0 left-0 right-0 h-16 
+bg-white/90 dark:bg-slate-900/90 backdrop-blur-md 
+border-b border-slate-200 dark:border-slate-800 
+z-50 flex items-center justify-between 
+px-2 md:px-8 transition-colors duration-300
+overflow-x-auto whitespace-nowrap scrollbar-hide">
+
           <div className="flex items-center gap-3">
             <div className="bg-blue-900 text-white p-1.5 rounded-lg">
               <BrainCircuit size={20} />
@@ -184,7 +190,7 @@ const App = () => {
 
           </div>
           <div className="flex items-center gap-2 md:gap-4">
-             <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+             <span className="text-sm md:text-xl font-bold tracking-tight truncate max-w-[140px] md:max-w-none">
               {[
                 { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
                 { id: 'research', icon: BookOpen, label: 'Research' }
