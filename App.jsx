@@ -190,11 +190,12 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
 
           </div>
           <div className="flex items-center gap-2 md:gap-4">
-             <span className="text-sm md:text-xl font-bold tracking-tight truncate max-w-[140px] md:max-w-none">
-              {[
-                { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-                { id: 'research', icon: BookOpen, label: 'Research' }
-              ].map((tab) => (
+             <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+  {[
+    { id: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { id: 'research', icon: BookOpen, label: 'Research' }
+  ].map((tab) => (
+
                 <button 
                   key={tab.id} 
                   onClick={() => setActiveTab(tab.id)} 
