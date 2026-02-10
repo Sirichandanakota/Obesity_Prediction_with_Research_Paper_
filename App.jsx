@@ -185,7 +185,7 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
               <BrainCircuit size={20} />
             </div>
             <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900 dark:text-white truncate">Obesity Prediction <span className="text-blue-900 dark:text-blue-400"> Research </span>
-  <span className="text-blue-900 dark:text-blue-400">by Siri Chandana</span>
+  <span className="text-blue-900 dark:text-blue-400">by Siri Chandana </span>
 </span>
 
           </div>
