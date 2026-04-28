@@ -7,7 +7,7 @@ This project transforms academic research into a real-world deployable solution,
 ---
 
 ## 🌐 Live Application
-**Web App:** https://obesityprediction.netlify.app/
+**Web App:** https://obesity-prediction-research-paper.vercel.app/
 
 ---
 
