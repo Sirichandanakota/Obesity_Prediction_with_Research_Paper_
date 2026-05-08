@@ -31,10 +31,10 @@ const SHAP_SUMMARY_DATA = [
 ];
 
 const SHAP_COLORS = {
-  Overweight: '#0ea5e9',      // Blue (matches image)
-  Obese: '#d946ef',           // Purple (matches image)
-  'Normal Weight': '#f43f5e', // Red (matches image)
-  Underweight: '#22c55e'      // Green (matches image)
+  Overweight: '#eb9423', //'#0ea5e9',      // Blue (matches image)
+  Obese: '#f43f5e' , // '#d946ef',           // Purple (matches image)
+  'Normal Weight': '#22c55e', // '#f43f5e', // Red (matches image)
+  Underweight: '#0ea5e9' //'#22c55e'      // Green (matches image)
 };
 
 const CATEGORY_META = {
