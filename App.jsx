@@ -224,7 +224,7 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
           
           {/* Main Dashboard View */}
           {activeTab === 'dashboard' && (
-            <div className="space-y-8 md:space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="space-y-6 md:space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
               
               {/* DISCLAIMER BANNER */}
               <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start gap-4 hover:shadow-md transition-all duration-300">
@@ -281,7 +281,7 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Physical Activity Level (1-4)</label>
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Physical Activity Level (1-Low, 4-Higher)</label>
                         <div className="grid grid-cols-4 gap-2">
                           {[1, 2, 3, 4].map(lvl => (
                             <button key={lvl} onClick={() => setFormData({...formData, activity: lvl})} className={`py-3 rounded-xl font-black transition-all border ${formData.activity === lvl ? 'bg-blue-900 border-blue-900 text-white shadow-lg' : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-blue-900'}`}>{lvl}</button>
@@ -408,12 +408,13 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                   {/* Paper Details Card */}
+                  
                   <div className="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-10 rounded-3xl shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:scale-[1.01]">
                      <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <BookOpen size={200} className="text-blue-900" />
                      </div>
                      <div className="relative z-10 space-y-6">
-                       <div className="pt-6">
+                       <div className="absolute top-6 right-6 z-20">
                           <a href="https://ieeexplore.ieee.org/document/11348622" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-6 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-900/30 select-none">
                             View Full Paper <ExternalLink size={18} />
                           </a>
