@@ -413,21 +413,22 @@ overflow-x-auto whitespace-nowrap scrollbar-hide">
                         <BookOpen size={200} className="text-blue-900" />
                      </div>
                      <div className="relative z-10 space-y-6">
+                       <div className="pt-6">
+                          <a href="https://ieeexplore.ieee.org/document/11348622" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-6 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-900/30 select-none">
+                            View Full Paper <ExternalLink size={18} />
+                          </a>
+                        </div>
                         <div className="flex flex-wrap items-center gap-3 mb-4">
                           <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 select-none">
                             <Calendar size={12} /> IEEE Published Date: Jan 26th, 2026
                           </span>
-                          <span className="text-slate-400 text-xs font-bold uppercase tracking-wider select-none">Document #11348622</span>
+                          
+                         
                         </div>
                         <h3 className="text-2xl md:text-3xl font-black leading-tight text-slate-900 dark:text-white">Enhancing Obesity Prediction with Explainable AI: A DeepHealthNet-Based Comparative Study</h3>
                         <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-medium text-sm md:text-base select-text">
                            <strong>Abstract:</strong> Obesity is becoming a global issue as daily habits shift toward less movement and more unhealthy eating as life becomes more convenient. People are unknowingly developing habits that increase the risk of obesity. The purpose of this study is to predict obesity categories using Machine Learning (ML) and Deep Learning (DL) models on actual data. We tested a few different models including K-Nearest Neighbors (KNN), Logistic Regression, Multi-Layer Perceptron (MLP), Long-Shortterm Memory (LSTM), Convolutional Neural Networks (CNN) and our custom architecture DeepHealthNet. Among these models, the proposed DeepHealthNet achieved the highest accuracy (97.00%) above Logistic Regression (95.60%), followed by MLP (95.00%) by a lower difference. Further examinations of the DeepHealthNet model showed differences in predicting obesity rates based on gender in Men (94.29%) and Women (92.71%).
                         </p>
-                        <div className="pt-6">
-                          <a href="https://ieeexplore.ieee.org/document/11348622" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-900/30 select-none">
-                            View Full Paper <ExternalLink size={18} />
-                          </a>
-                        </div>
                      </div>
                   </div>
 
